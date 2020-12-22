@@ -58,3 +58,43 @@ PRODUCT_PACKAGES += \
     com.android.car.procfsinspector \
     libcar-framework-service-jni \
     NoCutoutOverlay
+
+# CAN
+# PRODUCT_PACKAGES += \
+# PRODUCT_COPY_FILES += \
+#     $(LOCAL_PATH)/can/setup-can.sh:/system/etc/setup-can.sh \
+#     $(LOCAL_PATH)/can/init.can.rc:root/init.can.rc
+
+# Can-Utils: https://github.com/linux-can/can-utils/
+PRODUCT_PACKAGES += \
+    libcan \
+    libj1939 \
+    j1939acd \
+    j1939cat \
+    j1939spy \
+    j1939sr \
+    testj1939 \
+    candump \
+    cansend \
+    bcmserver \
+    can-calc-bit-timing \
+    canbusload \
+    canfdtest \
+    cangen \
+    cangw \
+    canlogserver \
+    canplayer \
+    cansniffer \
+    isotpdump \
+    isotprecv \
+    isotpsend \
+    isotpserver \
+    isotpsniffer \
+    isotptun \
+    isotpperf \
+    log2asc \
+    asc2log \
+    log2long \
+    slcan_attach \
+    slcand \
+    slcanpty
