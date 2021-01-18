@@ -9,16 +9,29 @@
 
 Start by reading : [https://github.com/PontusPersson/local_manifests](https://github.com/PontusPersson/local_manifests)
 
+# Install prerequisites
+
+```
+$ sudo apt install gcc-aarch64-linux-gnu libssl-dev
+```
+
+
 ## ARM64 Toolchain
 
-> TODO
+To compile the kernel we need a cross-compile toolchain for arm64.
+
+```
+$ cd $HOME
+$ wget https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
+$ tar xvpf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
+```
 
 ## Build Kernel
 First, install prerequisites and merge the android kernel config with the base config for raspberry pi 4 (bcm2711).
 
 ```
-$ sudo apt install gcc-aarch64-linux-gnu libssl-dev
 $ cd kernel/arpi
+$ export PATH=$HOME/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin:$PATH
 $ ARCH=arm64 scripts/kconfig/merge_config.sh \
   arch/arm64/configs/bcm2711_defconfig \
   kernel/configs/android-base.config \
