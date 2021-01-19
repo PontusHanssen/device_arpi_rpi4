@@ -218,3 +218,21 @@ adb connect Android.local
 adb shell
 rpi4 #:/
 ```
+
+
+# Working with CAN
+
+## Preparations
+
+To use the PICan2 HAT together with an OBD-II, first solder the jumpers according to these instructions before mounting it on the raspberry pi: http://skpang.co.uk/catalog/images/raspberrypi/pi_2/PICAN2SMPSUG13.pdf
+
+## Setting up the can0 interface
+
+```
+$ adb shell
+rpi4:/ # ip link set dev can0 up type can bitrate 500000
+rpi4:/ # candump can0,7e8:7ef &
+rpi4:/ # cansend can0 7df#0201050000000000
+can0 7E8  [8] 02 41 05 50 00 00 00 00
+rpi:/ #
+```
