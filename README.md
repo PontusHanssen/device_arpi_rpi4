@@ -40,7 +40,7 @@ $ ARCH=arm64 scripts/kconfig/merge_config.sh \
 
 $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make Image.gz -j $(nproc)
 $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make broadcom/bcm2711-rpi-4-b.dtb
-$ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make broadcom/mcp2515-can0.dtb
+$ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make overlays/mcp2515-can0.dtbo
 $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make overlays/vc4-kms-v3d-pi4.dtbo
 $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make overlays/spi0-1cs.dtbo
 $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" make overlays/dwc2.dtbo
@@ -91,10 +91,10 @@ $ cd /mount/point/of/boot
 $ mkdir overlays
 $ cp -a $ANDROID_BUILD_TOP/device/arpi/rpi4/boot/* .
 $ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/Image.gz .
-$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/bcm2711-rpi-4-b.dtb .
-$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/vc4-kms-v3d-pi4.dtbo ./overlays/
-$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/spi0-1cs.dtbo ./overlays
-$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/mcp2515-can0.dtbo ./overlays
-$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dwc2.dtbo ./overlays
+$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dts/broadcom/bcm2711-rpi-4-b.dtb .
+$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dts/overlays/vc4-kms-v3d-pi4.dtbo ./overlays/
+$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dts/overlays/spi0-1cs.dtbo ./overlays
+$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dts/overlays/mcp2515-can0.dtbo ./overlays
+$ cp -a $ANDROID_BUILD_TOP/kernel/arpi/arch/arm64/boot/dts/overlays/dwc2.dtbo ./overlays
 $ cp -a $OUT/ramdisk.img .
 ```
